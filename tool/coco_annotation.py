@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 '''
 @Time          : 2020/05/08 11:45
 @Author        : Tianxiaomo
@@ -16,9 +15,15 @@ from tqdm import tqdm
 import os
 
 """hyper parameters"""
-json_file_path = 'E:/Dataset/mscoco2017/annotations/instances_train2017.json'
-images_dir_path = 'mscoco2017/train2017/'
-output_path = '../data/val.txt'
+# # train data
+# json_file_path = '../input/cervical2/cervical_dataset/annotations/train.json'
+# images_dir_path = '../input/cervical2/cervical_dataset/images/train2017'
+# output_path = 'pytorch-YOLOv4/data/train.txt'
+
+# val data
+json_file_path = '../input/cervical2/cervical_dataset/annotations/val.json'
+images_dir_path = '../input/cervical2/cervical_dataset/images/val2017'
+output_path = 'pytorch-YOLOv4/data/val.txt'
 
 """load json file"""
 name_box_id = defaultdict(list)
@@ -32,7 +37,9 @@ annotations = data['annotations']
 for ant in tqdm(annotations):
     id = ant['image_id']
     # name = os.path.join(images_dir_path, images[id]['file_name'])
-    name = os.path.join(images_dir_path, '{:012d}.jpg'.format(id))
+    # name = os.path.join(images_dir_path, '{:012d}.jpg'.format(id))
+    image_index = [i for i in range(len(images)) if images[i]["id"]==id][0]
+    name = os.path.join(images_dir_path, images[image_index]['file_name'])
     cat = ant['category_id']
 
     if cat >= 1 and cat <= 11:

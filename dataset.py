@@ -13,7 +13,7 @@
 import os
 import random
 import sys
-
+import json
 import cv2
 import numpy as np
 
@@ -429,12 +429,17 @@ def get_image_id(filename:str) -> int:
     # no = f"{int(no):04d}"
     # return int(lv+no)
 
-    print("You could also create your own 'get_image_id' function.")
-    # print(filename)
-    parts = filename.split('/')
-    id = int(parts[-1][0:-4])
-    # print(id)
-    return id
+    # print("You could also create your own 'get_image_id' function.")
+    # # print(filename)
+    # parts = filename.split('/')
+    # id = int(parts[-1][0:-4])
+    # # print(id)
+    # return id
+    json_file_path = '/content/drive/MyDrive/annotations/val.json'
+    with open(json_file_path, encoding='utf-8') as f:
+        data = json.load(f)
+    images = data["images"]
+    return [images[i]["id"] for i in range(len(images)) if images[i]["file_name"]==filename.split("/")[-1]][0]
 
 
 if __name__ == "__main__":
