@@ -16,14 +16,14 @@ import os
 
 """hyper parameters"""
 # # train data
-# json_file_path = '../input/cervical2/cervical_dataset/annotations/train.json'
-# images_dir_path = '../input/cervical2/cervical_dataset/images/train2017'
-# output_path = 'pytorch-YOLOv4/data/train.txt'
+# json_file_path = '/home/ubuntu/cervical/annotations/train.json'
+# images_dir_path = '/home/ubuntu/cervical/images/train2017'
+# output_path = 'data/train.txt'
 
 # val data
-json_file_path = '../input/cervical2/cervical_dataset/annotations/val.json'
-images_dir_path = '../input/cervical2/cervical_dataset/images/val2017'
-output_path = 'pytorch-YOLOv4/data/val.txt'
+json_file_path = '/home/ubuntu/cervical/annotations/val.json'
+images_dir_path = '/home/ubuntu/cervical/images/val2017'
+output_path = 'data/val.txt'
 
 """load json file"""
 name_box_id = defaultdict(list)

@@ -436,7 +436,7 @@ def get_image_id(filename:str) -> int:
     # id = int(parts[-1][0:-4])
     # # print(id)
     # return id
-    json_file_path = '../input/cervical-rotation-dataset/annotations/val.json'
+    json_file_path = '/home/ubuntu/cervical/annotations/val.json'
     with open(json_file_path, encoding='utf-8') as f:
         data = json.load(f)
     images = data["images"]
